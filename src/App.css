@@ -1,38 +1,71 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
-
+.MuiButton-label {
+	color: #fff;
+}
+.topMenuBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.searchInput {
+	margin: 0 15px;
+	border: none;
+	border-bottom: solid 1px #000;
+	background-color: transparent;
+	outline: none;
+	font-size: 16px;
+	color: #fff;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.searchInput::placeholder {
+	color: #eee;
+}
+.makeStyles-paper-204 {
+	min-width: 60% !important;
+}
+.MuiFormControl-root {
+	min-width: 100% !important;
+}
+.formModalSelect > div {
+	transform: translateX(-7px);
+}
+.makeStyles-paper-205 {
+	min-width: 100% !important;
+}
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
