@@ -63,13 +63,13 @@ const theme = createMuiTheme({
 	}
 });
 
-export default function AddButton() {
+export default function AddButton(props) {
 	const classes = useStyles();
 
 	return (
-		<div>
+		<div className="addNewButton">
 			<ThemeProvider theme={theme}>
-				<Button variant="contained" color="primary" className={classes.margin}>
+				<Button onClick={props.handleFormModal} variant="contained" color="primary" className={classes.margin}>
 					Add New
 				</Button>
 			</ThemeProvider>

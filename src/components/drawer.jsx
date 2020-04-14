@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function AppDrawer() {
+export default function AppDrawer(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [ open, setOpen ] = React.useState(false);
@@ -125,7 +125,7 @@ export default function AppDrawer() {
 							Employ Data Table
 						</Typography>
 						<SearchData />
-						<AddButton />
+						{/* <AddButton handleFormModal={props.handleFormModal} /> */}
 					</div>
 				</Toolbar>
 			</AppBar>
@@ -169,7 +169,7 @@ export default function AppDrawer() {
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<AppTable />
-				<FormModal />
+				<FormModal modalState={props.modalState} />
 			</main>
 		</div>
 	);

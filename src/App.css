@@ -49,6 +49,9 @@
 .searchInput::placeholder {
 	color: #eee;
 }
+.makeStyles-paper-171 {
+	min-width: 60% !important;
+}
 .makeStyles-paper-204 {
 	min-width: 60% !important;
 }
@@ -60,6 +63,9 @@
 }
 .makeStyles-paper-205 {
 	min-width: 100% !important;
+}
+.addNewButton > button {
+	background-color: #4caf50 !important;
 }
 @keyframes App-logo-spin {
 	from {

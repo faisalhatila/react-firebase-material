@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import AddButton from './addbutton';
 
 const useStyles = makeStyles((theme) => ({
 	modal: {
@@ -28,11 +29,10 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function FormModal() {
+export default function FormModal(props) {
 	const classes = useStyles();
-	const [ open, setOpen ] = React.useState(false);
-
-	const handleOpen = () => {
+	const [ open, setOpen ] = React.useState(props.modalState);
+	const handleFormModal = () => {
 		setOpen(true);
 	};
 
@@ -45,6 +45,7 @@ export default function FormModal() {
 			{/* <button type="button" onClick={handleOpen}>
 				react-transition-group
 			</button> */}
+			<AddButton handleFormModal={handleFormModal} />
 			<Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
