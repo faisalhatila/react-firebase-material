@@ -77,7 +77,7 @@ export default function AppTable(props) {
 								<EditIcon />
 							</TableCell>
 							<TableCell align="left">
-								<DeleteIcon />
+								<DeleteIcon onClick={props.handleDeleteData} />
 							</TableCell>
 						</TableRow>
 					))}

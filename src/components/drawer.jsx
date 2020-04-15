@@ -168,7 +168,7 @@ export default function AppDrawer(props) {
 			</Drawer>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<AppTable userData={props.userData} />
+				<AppTable userData={props.userData} handleDeleteData={props.handleDeleteData} />
 				<FormModal
 					nameValue={props.nameValue}
 					nameChange={props.nameChange}

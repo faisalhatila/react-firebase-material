@@ -41,41 +41,53 @@ export default class App extends Component {
 			}
 		);
 	};
+	handleDataDelete = (companyId) => {
+		// let { data } = this.state;
+		// data = this.state.data.filter((item) => {
+		// 	return item.companyId !== companyId;
+		// });
+		// this.setState({ data: data });
+		// alert('asdas');
+		let { data } = this.state;
+		data = this.state.data.filter((item) => {
+			return item.companyId !== companyId;
+		});
+	};
 	handleNameInputChange = (event) => {
 		this.setState({
 			nameInput: event.target.value
 		});
-		console.log(this.state.nameInput);
+		// console.log(this.state.nameInput);
 	};
 	handleCityInputChange = (event) => {
 		this.setState({
 			cityInput: event.target.value
 		});
-		console.log(this.state.cityInput);
+		// console.log(this.state.cityInput);
 	};
 	handleCountryInputChange = (event) => {
 		this.setState({
 			countryInput: event.target.value
 		});
-		console.log(this.state.countryInput);
+		// console.log(this.state.countryInput);
 	};
 	handleZipCodeInputChange = (event) => {
 		this.setState({
 			zipCodeInput: event.target.value
 		});
-		console.log(this.state.zipCodeInput);
+		// console.log(this.state.zipCodeInput);
 	};
 	handleAddressInputChange = (event) => {
 		this.setState({
 			addressInput: event.target.value
 		});
-		console.log(this.state.addressInput);
+		// console.log(this.state.addressInput);
 	};
 	handleEmailInputChange = (event) => {
 		this.setState({
 			emailInput: event.target.value
 		});
-		console.log(this.state.emailInput);
+		// console.log(this.state.emailInput);
 	};
 	componentDidMount() {
 		this.handleFormModal();
@@ -106,6 +118,7 @@ export default class App extends Component {
 					emailChange={this.handleEmailInputChange}
 					handleDataInsert={this.handleDataInsert}
 					userData={this.state.data}
+					handleDeleteData={this.handleDataDelete}
 				/>
 			</div>
 		);
