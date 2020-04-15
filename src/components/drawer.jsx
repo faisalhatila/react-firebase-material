@@ -168,8 +168,22 @@ export default function AppDrawer(props) {
 			</Drawer>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<AppTable />
-				<FormModal modalState={props.modalState} />
+				<AppTable userData={props.userData} />
+				<FormModal
+					nameValue={props.nameValue}
+					nameChange={props.nameChange}
+					cityValue={props.cityValue}
+					cityChange={props.cityChange}
+					countryValue={props.countryValue}
+					countryChange={props.countryChange}
+					zipValue={props.zipValue}
+					zipChange={props.zipChange}
+					addressValue={props.addressValue}
+					addressChange={props.addressChange}
+					emailValue={props.emailValue}
+					emailChange={props.emailChange}
+					handleDataInsert={props.handleDataInsert}
+				/>
 			</main>
 		</div>
 	);

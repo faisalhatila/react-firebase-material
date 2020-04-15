@@ -25,7 +25,7 @@ const rows = [
 	createData('Eclair', 262, 16.0, 24, 6.0, 3.01, 4)
 ];
 
-export default function AppTable() {
+export default function AppTable(props) {
 	const classes = useStyles();
 
 	return (
@@ -64,15 +64,15 @@ export default function AppTable() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{rows.map((row) => (
-						<TableRow key={row.name}>
+					{props.userData.map((row, i) => (
+						<TableRow key={i}>
+							<TableCell align="left">{row.companyId}</TableCell>
 							<TableCell align="left">{row.name}</TableCell>
-							<TableCell align="left">{row.calories}</TableCell>
-							<TableCell align="left">{row.fat}</TableCell>
-							<TableCell align="left">{row.carbs}</TableCell>
-							<TableCell align="left">{row.protein}</TableCell>
-							<TableCell align="left">{row.khistakh}</TableCell>
-							<TableCell align="left">{row.khutra}</TableCell>
+							<TableCell align="left">{row.city}</TableCell>
+							<TableCell align="left">{row.country}</TableCell>
+							<TableCell align="left">{row.zip}</TableCell>
+							<TableCell align="left">{row.address}</TableCell>
+							<TableCell align="left">{row.email}</TableCell>
 							<TableCell align="left">
 								<EditIcon />
 							</TableCell>

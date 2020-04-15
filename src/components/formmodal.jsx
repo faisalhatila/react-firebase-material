@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FormModal(props) {
 	const classes = useStyles();
-	const [ open, setOpen ] = React.useState(props.modalState);
+	const [ open, setOpen ] = React.useState(false);
 	const handleFormModal = () => {
 		setOpen(true);
 	};
@@ -63,16 +63,21 @@ export default function FormModal(props) {
 						<h2 id="transition-modal-title">Enter Record</h2>
 						<form className={classes.root} noValidate autoComplete="off">
 							<div>
-								<TextField id="standard-basic" label="Name" />
+								<TextField
+									onChange={props.nameChange}
+									value={props.nameValue}
+									id="standard-basic"
+									label="Name"
+								/>
 							</div>
-							<div class="formModalSelect">
+							<div className="formModalSelect">
 								<FormControl className={classes.formControl}>
 									<InputLabel id="demo-simple-select-label">Country</InputLabel>
 									<Select
 										labelId="demo-simple-select-label"
 										id="demo-simple-select"
-										// value={age}
-										// onChange={handleChange}
+										value={props.countryValue}
+										onChange={props.countryChange}
 									>
 										<MenuItem value={10}>Ten</MenuItem>
 										<MenuItem value={20}>Twenty</MenuItem>
@@ -80,14 +85,14 @@ export default function FormModal(props) {
 									</Select>
 								</FormControl>
 							</div>
-							<div class="formModalSelect">
+							<div className="formModalSelect">
 								<FormControl className={classes.formControl}>
 									<InputLabel id="demo-simple-select-label">City</InputLabel>
 									<Select
 										labelId="demo-simple-select-label"
 										id="demo-simple-select"
-										// value={age}
-										// onChange={handleChange}
+										value={props.cityValue}
+										onChange={props.cityChange}
 									>
 										<MenuItem value={10}>Ten</MenuItem>
 										<MenuItem value={20}>Twenty</MenuItem>
@@ -96,16 +101,31 @@ export default function FormModal(props) {
 								</FormControl>
 							</div>
 							<div>
-								<TextField id="standard-basic" label="Zip Code" />
+								<TextField
+									id="standard-basic"
+									label="Zip Code"
+									onChange={props.zipChange}
+									value={props.zipValue}
+								/>
 							</div>
 							<div>
-								<TextField id="standard-basic" label="Address" />
+								<TextField
+									id="standard-basic"
+									label="Address"
+									onChange={props.addressChange}
+									value={props.addressValue}
+								/>
 							</div>
 							<div>
-								<TextField id="standard-basic" label="Email" />
+								<TextField
+									id="standard-basic"
+									label="Email"
+									onChange={props.emailChange}
+									value={props.emailValue}
+								/>
 							</div>
 							<div style={{ marginTop: '10px' }}>
-								<Button variant="contained" color="primary">
+								<Button onClick={props.handleDataInsert} variant="contained" color="primary">
 									Save
 								</Button>
 							</div>
