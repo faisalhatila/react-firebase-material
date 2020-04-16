@@ -124,7 +124,7 @@ export default function AppDrawer(props) {
 						<Typography variant="h6" noWrap>
 							Employ Data Table
 						</Typography>
-						<SearchData />
+						<SearchData searchRecord={props.searchRecord} searchKeyword={props.searchKeyword} />
 						{/* <AddButton handleFormModal={props.handleFormModal} /> */}
 					</div>
 				</Toolbar>
@@ -168,7 +168,12 @@ export default function AppDrawer(props) {
 			</Drawer>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<AppTable userData={props.userData} handleDeleteData={props.handleDeleteData} />
+				<AppTable
+					userData={props.userData}
+					handleDeleteData={props.handleDeleteData}
+					searchingFor={props.searchingFor}
+					searchKeyword={props.searchKeyword}
+				/>
 				<FormModal
 					nameValue={props.nameValue}
 					nameChange={props.nameChange}
@@ -183,6 +188,13 @@ export default function AppDrawer(props) {
 					emailValue={props.emailValue}
 					emailChange={props.emailChange}
 					handleDataInsert={props.handleDataInsert}
+					countryList={props.countryList}
+					dataProv={props.dataProv}
+					selectedProvId={props.selectedProvId}
+					onSelectProv={props.onSelectProv}
+					dataCity={props.dataCity}
+					selectedCityId={props.selectedCityId}
+					onSelectCity={props.onSelectCity}
 				/>
 			</main>
 		</div>

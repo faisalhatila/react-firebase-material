@@ -10,6 +10,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import AddButton from './addbutton';
+import Province from './province';
+import City from './cities';
 
 const useStyles = makeStyles((theme) => ({
 	modal: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(2, 4, 3)
 	},
 	formControl: {
-		margin: theme.spacing(1),
+		// margin: theme.spacing(1),
 		minWidth: 120
 	}
 }));
@@ -39,6 +41,7 @@ export default function FormModal(props) {
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const countryList = props.countryList;
 
 	return (
 		<div>
@@ -70,36 +73,18 @@ export default function FormModal(props) {
 									label="Name"
 								/>
 							</div>
-							<div className="formModalSelect">
-								<FormControl className={classes.formControl}>
-									<InputLabel id="demo-simple-select-label">Country</InputLabel>
-									<Select
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={props.countryValue}
-										onChange={props.countryChange}
-									>
-										<MenuItem value={10}>Ten</MenuItem>
-										<MenuItem value={20}>Twenty</MenuItem>
-										<MenuItem value={30}>Thirty</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
-							<div className="formModalSelect">
-								<FormControl className={classes.formControl}>
-									<InputLabel id="demo-simple-select-label">City</InputLabel>
-									<Select
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={props.cityValue}
-										onChange={props.cityChange}
-									>
-										<MenuItem value={10}>Ten</MenuItem>
-										<MenuItem value={20}>Twenty</MenuItem>
-										<MenuItem value={30}>Thirty</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
+							<Province
+								data={props.dataProv}
+								selectedId={props.selectedProvId}
+								onSelect={props.onSelectProv}
+								countryChange={props.countryChange}
+							/>
+							<City
+								data={props.dataCity}
+								selectedId={props.selectedCityId}
+								onSelect={props.onSelectCity}
+								cityChange={props.cityChange}
+							/>
 							<div>
 								<TextField
 									id="standard-basic"
@@ -127,6 +112,9 @@ export default function FormModal(props) {
 							<div style={{ marginTop: '10px' }}>
 								<Button onClick={props.handleDataInsert} variant="contained" color="primary">
 									Save
+								</Button>
+								<Button onClick={handleClose} variant="contained" id="closeBtn" color="primary">
+									Close
 								</Button>
 							</div>
 						</form>

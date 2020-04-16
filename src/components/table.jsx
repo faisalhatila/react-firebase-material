@@ -27,6 +27,7 @@ const rows = [
 
 export default function AppTable(props) {
 	const classes = useStyles();
+	const data = props.userData;
 
 	return (
 		<TableContainer component={Paper}>
@@ -55,33 +56,42 @@ export default function AppTable(props) {
 						<TableCell align="left">
 							<strong>Email</strong>
 						</TableCell>
-						<TableCell align="left">
+						{/* <TableCell align="left">
 							<strong>Update</strong>
 						</TableCell>
 						<TableCell align="left">
 							<strong>Delete</strong>
-						</TableCell>
+						</TableCell> */}
 					</TableRow>
 				</TableHead>
-				<TableBody>
-					{props.userData.map((row, i) => (
-						<TableRow key={i}>
-							<TableCell align="left">{row.companyId}</TableCell>
-							<TableCell align="left">{row.name}</TableCell>
-							<TableCell align="left">{row.city}</TableCell>
-							<TableCell align="left">{row.country}</TableCell>
-							<TableCell align="left">{row.zip}</TableCell>
-							<TableCell align="left">{row.address}</TableCell>
-							<TableCell align="left">{row.email}</TableCell>
-							<TableCell align="left">
-								<EditIcon />
-							</TableCell>
-							<TableCell align="left">
-								<DeleteIcon onClick={props.handleDeleteData} />
-							</TableCell>
+				{data.length == 0 ? (
+					// <h4 style={{ paddingLeft: '20px' }}>No Record Yet</h4>
+					<TableBody>
+						<TableRow>
+							<TableCell align="left">No Data</TableCell>
 						</TableRow>
-					))}
-				</TableBody>
+					</TableBody>
+				) : (
+					<TableBody>
+						{data.filter(props.searchingFor(props.searchKeyword)).map((row, i) => (
+							<TableRow key={i}>
+								<TableCell align="left">{row.companyId}</TableCell>
+								<TableCell align="left">{row.name}</TableCell>
+								<TableCell align="left">{row.city}</TableCell>
+								<TableCell align="left">{row.country}</TableCell>
+								<TableCell align="left">{row.zip}</TableCell>
+								<TableCell align="left">{row.address}</TableCell>
+								<TableCell align="left">{row.email}</TableCell>
+								{/* <TableCell align="left">
+									<EditIcon />
+								</TableCell>
+								<TableCell align="left">
+									<DeleteIcon onClick={props.handleDeleteData} />
+								</TableCell> */}
+							</TableRow>
+						))}
+					</TableBody>
+				)}
 			</Table>
 		</TableContainer>
 	);
